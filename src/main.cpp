@@ -22,7 +22,7 @@ int main() {
 
 
 
-	/*Считывание данных из файла и запись в таблицы*/
+	/*Reading data from a file and writing to tables*/
 	TUnsortedTable UnsortedTable(MAX);
 	TSortedTable SortedTable(MAX);
 	TBalanceTree BalanceTree;
@@ -39,46 +39,46 @@ int main() {
 		HashTable.Push(tmpKey, tmpData);
 	}
 
-	 /*Основной цикл с реализацией работы с таблицами*/
+	 /*The main cycle with the implementation of working with tables*/
 	while (flag) {
 		flagUnsort = true; flagSort = true; flagTree = true; flagHash = true;
-		std::cout << "1 просматриваемая таблица | 2 сортированная таблица | 3 бинарное дерево | 4 хэш таблица | 0 завершение программы: ";
+		std::cout << "1 unsorted table | 2 sorted table | 3 binary tree | 4 hash table | 0 end program: ";
 		std::cin >> input;
 		std::cout << std::endl;
 		switch (input) {
 		case 1:
 			while (flagUnsort) {
-				std::cout << "1 добавить объект | 2 удалить объект | 3 проверить на наличие записи в таблице | 4 вывод текущей таблицы | 0 выход в меню: ";
+				std::cout << "1 add object | 2 delete object | 3 check for table entry | 4 output current table | 0 exit to menu: ";
 				std::cin >> inputUnsort;
 				std::cout << std::endl;
 				switch (inputUnsort) {
 				case 1:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
-					std::cout << "Введите значение объекта: ";
+					std::cout << "Enter object value: ";
 					std::cin >> tmpData;
 					UnsortedTable.Push(tmpKey, tmpData);
-					std::cout << "Кол-во операций: " << UnsortedTable.GetCountOp();
+					std::cout << "Number of operations: " << UnsortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 2:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					UnsortedTable.Del(tmpKey);
-					std::cout << "Кол-во операций: " << UnsortedTable.GetCountOp();
+					std::cout << "Number of operations: " << UnsortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 3:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					tmpData = UnsortedTable.Search(tmpKey);
 					if (tmpData == -1) {
-						std::cout << "Объекта с таким именем нет в таблице" << std::endl;
+						std::cout << "There is no object with this name in the table" << std::endl;
 					}
 					else {
-						std::cout << "Объект " << tmpKey << " найден в таблице под номером " << tmpData + 1 << std::endl;
+						std::cout << "Object " << tmpKey << " found in the table under number " << tmpData + 1 << std::endl;
 					}
-					std::cout << "Кол-во операций: " << UnsortedTable.GetCountOp();
+					std::cout << "Number of operations: " << UnsortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 4:
@@ -92,37 +92,37 @@ int main() {
 			break;
 		case 2:
 			while (flagSort) {
-				std::cout << "1 добавить объект | 2 удалить объект | 3 проверить на наличие записи в таблице | 4 вывод текущей таблицы | 0 выход в меню: ";
+				std::cout << "1 add object | 2 delete object | 3 check for table entry | 4 output current table | 0 exit to menu: ";
 				std::cin >> inputSort;
 				std::cout << std::endl;
 				switch (inputSort) {
 				case 1:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
-					std::cout << "Введите значение объекта: ";
+					std::cout << "Enter object value: ";
 					std::cin >> tmpData;
 					SortedTable.Push(tmpKey, tmpData);
-					std::cout << "Кол-во операций: " << SortedTable.GetCountOp();
+					std::cout << "Number of operations: " << SortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 2:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					SortedTable.Del(tmpKey);
-					std::cout << "Кол-во операций: " << SortedTable.GetCountOp();
+					std::cout << "Number of operations: " << SortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 3:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					tmpData = SortedTable.Search(tmpKey, &flagSortSerch);
 					if (!flagSortSerch) {
-						std::cout << "Объекта с таким именем нет в таблице" << std::endl;
+						std::cout << "There is no object with this name in the table" << std::endl;
 					}
 					else {
-						std::cout << "Объект " << tmpKey << " найден в таблице под номером " << tmpData + 1 << std::endl;
+						std::cout << "Object " << tmpKey << " found in the table under number " << tmpData + 1 << std::endl;
 					}
-					std::cout << "Кол-во операций: " << SortedTable.GetCountOp();
+					std::cout << "Number of operations: " << SortedTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 4:
@@ -136,24 +136,24 @@ int main() {
 			break;
 		case 3:
 			while (flagTree) {
-				std::cout << "1 добавить объект | 2 удалить объект | 3 вывод текущей таблицы | 0 выход в меню: ";
+				std::cout << "1 add object | 2 delete object | 3 output current table | 0 exit to menu: ";
 				std::cin >> inputTree;
 				std::cout << std::endl;
 				switch (inputTree) {
 				case 1:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
-					std::cout << "Введите значение объекта: ";
+					std::cout << "Enter object value: ";
 					std::cin >> tmpData;
 					BalanceTree.Push(tmpKey, tmpData);
-					std::cout << "Кол-во операций: " << BalanceTree.GetCountOp();
+					std::cout << "Number of operations: " << BalanceTree.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 2:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					BalanceTree.Del(tmpKey);
-					std::cout << "Кол-во операций: " << BalanceTree.GetCountOp();
+					std::cout << "Number of operations: " << BalanceTree.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 3:
@@ -167,24 +167,24 @@ int main() {
 			break;
 		case 4:
 			while (flagHash) {
-				std::cout << "1 добавить объект | 2 удалить объект | 3 вывод текущей таблицы | 0 выход в меню: ";
+				std::cout << "1 add object | 2 delete object | 3 output current table | 0 exit to menu: ";
 				std::cin >> inputHash;
 				std::cout << std::endl;
 				switch (inputHash) {
 				case 1:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
-					std::cout << "Введите значение объекта: ";
+					std::cout << "Enter object value: ";
 					std::cin >> tmpData;
 					HashTable.Push(tmpKey, tmpData);
-					std::cout << "Кол-во операций: " << HashTable.GetCountOp();
+					std::cout << "Number of operations: " << HashTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 2:
-					std::cout << "Введите имя объекта: ";
+					std::cout << "Enter object name: ";
 					std::cin >> tmpKey;
 					HashTable.Del(tmpKey);
-					std::cout << "Кол-во операций: " << HashTable.GetCountOp();
+					std::cout << "Number of operations: " << HashTable.GetCountOp();
 					std::cout << std::endl;
 					break;
 				case 3:
@@ -200,7 +200,6 @@ int main() {
 			flag = false;
 		}
 	}
-
 
 	fin.close();
 	return 0;

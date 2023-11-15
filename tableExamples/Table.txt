@@ -1,5 +1,5 @@
-10 1
-20 3
-30 2
-40 1
-50 3
+apple 1
+juice 3
+tomato 2
+melon 1
+pear 3
